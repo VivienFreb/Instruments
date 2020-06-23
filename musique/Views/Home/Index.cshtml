@@ -1,0 +1,74 @@
+﻿@model musique.Models.TypeIns
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Formulaire ajout</title>
+</head>
+<body>
+    <div>
+        <center>
+            <label>Classe : </label>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <select id="classe" name="classe" align="center" required>
+            @Html.Raw(musique.Models.Data.GetClasse())
+        </select>
+
+        <input type="submit" value="Afficher" />
+}
+
+            <br /><br />
+
+            @using (Html.BeginForm("FormAjout", "Home", FormMethod.Post))
+    {
+
+        if (Request.Form["classe"] != null)
+        {
+            <label>Type : </label>
+            <select id="type" name="type" required>
+                @Html.Raw(musique.Models.Data.GetType(Convert.ToInt32(Request.Form["classe"])))
+            </select>
+
+            <br /><br />
+
+}
+
+
+        @Html.Label("Utilisation", "Cochez la case si l'instrument est prêté : ")
+
+        <label>OUI</label> @Html.RadioButton("Utilisation", "1")
+        <label>NON</label> @Html.RadioButton("Utilisation", "0", true)
+        <br /><br />
+        <label>Marque : </label>
+        @Html.TextBox("Marque", null, new { @required = "required" })
+        <br /><br />
+        <label>Modèle : </label>
+        @Html.TextBox("Modele", null, new { @required = "required" })
+        <br /><br />
+        <label>Couleur dominante</label>
+        @Html.TextBox("Couleur", null, new { @required = "required" })
+        <br /><br />
+        <label>Numéro de série</label>
+        @Html.TextBox("NumSerie", null, new { @required = "required", @maxlength = "7" })
+        <br /><br />
+        <label>Date d'achat : </label>
+        <input class="datefield" id="DateAchat" name="DateAchat" type="date" />
+        <br /><br />
+        <Label>Prix d'achat : </Label>
+        @Html.TextBox("PrixAchat", null, new { @required = "required", @type = "number" })
+        <!--, step = "0.01" -->
+        <br /><br />
+
+        <input type="submit" value="Ajouter" formaction=@Url.Action("Test") />
+
+}
+        </center>
+    </div>
+</body>
+</html>

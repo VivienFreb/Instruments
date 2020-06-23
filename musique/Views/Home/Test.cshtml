@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div>
+        <center>
+        <label>L'ajout à été correctement effectué.</label>
+        <br /><br />
+        <label>Instrument ajouter : </label>
+        <br /><br />
+        <label>Marque : </label>
+        @ViewData["marque"] 
+        <br /><br />
+        <label>Modèle : </label>
+        @ViewData["modele"] 
+        <br /><br />
+        <label>Code du type : </label>
+        @ViewData["codetype"]
+        <br /><br />
+        <label>Date d'achat : </label>
+        @ViewData["dateachat"]
+        <br /><br />
+        <label>Prix d'achat : </label>
+        @ViewData["prixachat"]
+        <br /><br />
+        <label>Couleur : </label>
+        @ViewData["couleur"]
+        <br /><br />
+        <label>Numéro de série : </label>
+        @ViewData["numserie"] 
+        <br /> <br />
+        <label>Prêt : </label>
+        @ViewData["utilisation"]
+            </center>
+    </div>
+</body>
+</html>
